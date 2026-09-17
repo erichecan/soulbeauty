@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.github
+.env*
+.playwright-mcp
+.agents
+.claude
+.windsurf
+docs
+*.md
+!README.md

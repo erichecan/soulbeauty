@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// 首页 / 服务页的服务板块卡片
+model ServiceOffering {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  summary   String
+  bullets   String[]
+  imageUrl  String?
+  iconKey   String?
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+}
+
+/// 预约页分类 Tab
+model ServiceCategory {
+  id        String            @id @default(cuid())
+  name      String
+  slug      String            @unique
+  sortOrder Int               @default(0)
+  services  BookableService[]
+}
+
+/// 预约页可选的具体项目(含时长与价格)
+model BookableService {
+  id          String          @id @default(cuid())
+  name        String
+  slug        String          @unique
+  durationMin Int
+  priceCents  Int
+  imageUrl    String?
+  categoryId  String
+  category    ServiceCategory @relation(fields: [categoryId], references: [id])
+  sortOrder   Int             @default(0)
+  isActive    Boolean         @default(true)
+
+  @@index([categoryId])
+}
+
+model Practitioner {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  title       String?
+  bio         String?
+  photoUrl    String?
+  specialties String[]
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+}
+
+model Testimonial {
+  id        String  @id @default(cuid())
+  quote     String
+  author    String?
+  rating    Int     @default(5)
+  headline  String?
+  subline   String?
+  sortOrder Int     @default(0)
+  isActive  Boolean @default(true)
+}
+
+model SiteSettings {
+  id      String  @id @default("default")
+  address String
+  phone1  String
+  phone2  String?
+  email   String
+  hours   String
+  hours2  String?
+}
