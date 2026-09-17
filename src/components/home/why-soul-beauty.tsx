@@ -14,7 +14,7 @@ const reasons = [
   {
     iconKey: "calendar",
     title: "Easy Online Booking",
-    description: "Book anytime, anywhere, in just a few taps.",
+    description: "Book anytime, anywhere.",
   },
 ];
 
