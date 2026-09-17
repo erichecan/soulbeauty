@@ -25,7 +25,7 @@ export function BookingHero() {
           </h1>
 
           <p className="mt-2 text-[15px] text-ink-body">
-            Simple. Secure. Powered by Jane.
+            Simple. Secure. Always available.
           </p>
         </div>
 

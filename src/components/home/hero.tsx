@@ -37,7 +37,7 @@ export function HomeHero({ address }: { address: string }) {
             <span className="h-8 w-px bg-ink/15" />
             <span className="flex items-center gap-2 text-[13px] text-ink-body">
               <CalendarDays className="h-[18px] w-[18px] text-brand" strokeWidth={1.5} />
-              Powered by Jane
+              Easy online booking
             </span>
           </div>
 

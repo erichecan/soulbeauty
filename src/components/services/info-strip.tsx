@@ -40,7 +40,6 @@ export function ServicesInfoStrip() {
                 <br />
                 anytime, anywhere.
               </p>
-              <p className="mt-0.5 text-[12px] text-ink-soft">Powered by Jane</p>
               <Link
                 href="/booking"
                 className="mt-1 inline-flex items-center gap-2 text-[13.5px] font-semibold text-ink underline underline-offset-4 transition-colors hover:text-brand-accent"

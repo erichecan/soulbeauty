@@ -15,7 +15,7 @@ const features = [
   {
     iconKey: "calendar",
     title: "Online Booking",
-    lines: ["Fast, easy and secure", "Powered by Jane"],
+    lines: ["Fast, easy and secure", "Anytime, anywhere"],
   },
 ];
 

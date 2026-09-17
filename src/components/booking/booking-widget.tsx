@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, Lock } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type BookingCategory = {
@@ -73,10 +73,6 @@ export function BookingWidget({ categories }: { categories: BookingCategory[] })
         <h2 className="font-display text-[26px] font-bold text-ink">
           Book an Appointment
         </h2>
-        <span className="flex items-center gap-2 text-[14px] text-ink-body">
-          <CalendarDays className="h-5 w-5 text-brand" strokeWidth={1.5} />
-          Powered by <span className="font-display font-semibold text-ink">Jane</span>
-        </span>
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-2.5 xl:grid-cols-4">
@@ -242,7 +238,7 @@ export function BookingWidget({ categories }: { categories: BookingCategory[] })
 
           <p className="mt-2 flex items-center justify-center gap-1.5 text-[12.5px] text-ink-soft">
             <Lock className="h-3.5 w-3.5" strokeWidth={1.8} />
-            Secure booking powered by Jane
+            Secure booking
           </p>
         </div>
       </div>
