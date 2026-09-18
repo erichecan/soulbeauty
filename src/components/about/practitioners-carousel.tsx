@@ -44,6 +44,7 @@ export function PractitionersCarousel({
               key={practitioner.id}
               href={janePractitionerUrl(practitioner.slug)}
               {...janeLinkProps}
+              aria-label={`Book an appointment with ${practitioner.name}`}
               className="group flex w-[150px] shrink-0 flex-col rounded-xl border border-lavender-line bg-surface px-2 pb-3 pt-4 text-center transition-colors hover:border-brand/40 lg:w-auto lg:min-w-0 lg:flex-1"
             >
               <span className="relative mx-auto flex h-[76px] w-full items-center justify-center">
@@ -79,8 +80,8 @@ export function PractitionersCarousel({
                 </p>
               )}
 
-              <span className="mt-auto flex items-center justify-center gap-1.5 rounded-lg bg-lavender-band px-2 py-1.5 text-[11.5px] font-medium leading-[1.3] text-brand transition-colors group-hover:bg-brand group-hover:text-white">
-                Book with {practitioner.name}
+              <span className="mt-auto flex items-center justify-center gap-1.5 rounded-lg bg-lavender-band px-2 py-2 text-[12px] font-medium text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+                Book Now
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
               </span>
             </a>
