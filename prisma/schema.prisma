@@ -50,6 +50,8 @@ model Practitioner {
   name        String
   slug        String   @unique
   title       String?
+  /// 出诊安排,如 "Wed & Sat";实时可约时段以 Jane 为准
+  schedule    String?
   bio         String?
   photoUrl    String?
   specialties String[]

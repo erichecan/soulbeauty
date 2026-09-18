@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { LeafSprig } from "@/components/decor";
 import type { PractitionerModel } from "@/generated/prisma/models";
 import { janeLinkProps, janePractitionerUrl } from "@/lib/jane";
@@ -44,7 +44,7 @@ export function PractitionersCarousel({
               key={practitioner.id}
               href={janePractitionerUrl(practitioner.slug)}
               {...janeLinkProps}
-              className="w-[150px] shrink-0 rounded-xl border border-lavender-line bg-surface px-2 pb-3 pt-4 text-center transition-colors hover:border-brand/40 lg:w-auto lg:min-w-0 lg:flex-1"
+              className="group flex w-[150px] shrink-0 flex-col rounded-xl border border-lavender-line bg-surface px-2 pb-3 pt-4 text-center transition-colors hover:border-brand/40 lg:w-auto lg:min-w-0 lg:flex-1"
             >
               <span className="relative mx-auto flex h-[76px] w-full items-center justify-center">
                 <LeafSprig className="pointer-events-none absolute left-0 top-4 h-[58px] w-[42px] -rotate-[28deg]" />
@@ -72,9 +72,17 @@ export function PractitionersCarousel({
                 {practitioner.title}
               </p>
 
-              <p className="mt-2.5 rounded-lg bg-lavender-band px-2 py-1.5 text-[12px] text-ink-body">
-                {practitioner.bio ? "View profile" : "Profile coming soon"}
-              </p>
+              {practitioner.schedule && (
+                <p className="mt-1.5 flex items-center justify-center gap-1 text-[11.5px] leading-[1.3] text-ink-body">
+                  <CalendarDays className="h-3.5 w-3.5 shrink-0 text-brand-accent" strokeWidth={1.6} />
+                  {practitioner.schedule}
+                </p>
+              )}
+
+              <span className="mt-auto flex items-center justify-center gap-1.5 rounded-lg bg-lavender-band px-2 py-1.5 text-[11.5px] font-medium leading-[1.3] text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+                Book with {practitioner.name}
+                <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+              </span>
             </a>
           ))}
         </div>

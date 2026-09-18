@@ -117,48 +117,55 @@ const bookableServices = [
   },
 ];
 
-// title 取自客户 Jane 站各人实际开诊的科别
+// title 与 schedule 由客户 2026-09-17 提供
 const practitioners = [
   {
     slug: "chen-zhou",
     name: "Chen Zhou",
-    title: "Acupuncturist",
+    title: "R.Ac, TMCP",
+    schedule: "Daily",
     photoUrl: "/images/practitioners/chen-zhou.png",
   },
   {
     slug: "jennifer-kung",
     name: "Jennifer Kung",
-    title: "Facial & Beauty Specialist",
+    title: "Massage Therapist & Esthetician",
+    schedule: "Daily, on call",
     photoUrl: "/images/practitioners/jennifer-kung.jpg",
   },
   {
     slug: "julia-zhuang",
     name: "Julia Zhuang",
-    title: "RMT & Acupuncturist",
+    title: "Registered Massage Therapist",
+    schedule: "Wed & Sat",
     photoUrl: "/images/practitioners/julia-zhuang.jpg",
   },
   {
     slug: "sherry-pu",
     name: "Sherry Pu",
-    title: "Registered Social Worker",
+    title: "Energy Healing Practitioner",
+    schedule: "Sat 11 AM – 2 PM",
     photoUrl: "/images/practitioners/sherry-pu.png",
   },
   {
     slug: "qian-feng",
     name: "Qian Feng",
-    title: "Acupuncturist",
+    title: "R.Ac, TMCP",
+    schedule: "Tue from 3 PM · Sat on call",
     photoUrl: "/images/practitioners/qian-feng.jpg",
   },
   {
     slug: "vinna-sun",
     name: "Vinna Sun",
-    title: "Facial & Beauty Specialist",
+    title: "Massage Therapist",
+    schedule: "Tue, Wed & Sat",
     photoUrl: "/images/practitioners/vinna-sun.jpg",
   },
   {
     slug: "yang-yuan-li",
     name: "Yang Yuan Li",
-    title: "Acupuncturist",
+    title: "Registered Acupuncturist",
+    schedule: "Daily",
     photoUrl: "/images/practitioners/yang-yuan-li.png",
   },
 ];

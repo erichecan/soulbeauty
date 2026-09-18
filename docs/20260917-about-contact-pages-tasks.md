@@ -12,7 +12,25 @@
 | 技师数据 | 用数据库真实 7 位 + 真实照片，职称取自客户 Jane 站 | 用户「包括里面技师的照片等等」 |
 | schema | **不变更**，`Practitioner.title` 字段已存在只是为空 | — |
 
-## 从客户 Jane 站取得的真实职称（2026-09-17 实测）
+## 技师资料（客户 2026-09-17 直接提供，已覆盖下方 Jane 抓取值）
+
+| slug | title | schedule | 与 Jane 站的出入 |
+| :-- | :-- | :-- | :-- |
+| julia-zhuang | Registered Massage Therapist | Wed & Sat | — |
+| chen-zhou | R.Ac, TMCP | Daily | — |
+| yang-yuan-li | Registered Acupuncturist | Daily | — |
+| vinna-sun | Massage Therapist | Tue, Wed & Sat | Jane 上归 Day Spa + Medical Aesthetics，不冲突 |
+| jennifer-kung | Massage Therapist & Esthetician | Daily, on call | 同上 |
+| qian-feng | R.Ac, TMCP | Tue from 3 PM · Sat on call | — |
+| sherry-pu | Energy Healing Practitioner | Sat 11 AM – 2 PM | **冲突**：Jane 上她归 Social Work，Energy Healing 由 Queenie Huang 提供 |
+
+### 待客户核对（未自行修改，按原文录入）
+
+1. **`TMCP` 疑为 `TCMP` 笔误**：安省注册中医师标准缩写是 R.TCMP（Registered Traditional Chinese Medicine Practitioner）。客户资料两处均写 TMCP，已按原文录入，未擅自更正。
+2. **Sherry Pu 科别冲突**：卡片标注 Energy Healing Practitioner，但点击后跳转的是她在 Jane 的 Social Work 预约页，访客会对不上。需确认她在 Jane 上的科别归属，或调整卡片链接。
+3. **排班会过时**：`schedule` 是写死在数据库里的，客户改班次时需有人同步改网站；Jane 上的可约时段才是实时的。若不想维护，可只保留职称、去掉排班行。
+
+## 从客户 Jane 站取得的职称（2026-09-17 实测，已被上方客户资料覆盖）
 
 | slug | Jane staff id | Jane 科别 | 落库 title |
 | :-- | :-- | :-- | :-- |
