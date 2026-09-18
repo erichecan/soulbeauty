@@ -1,4 +1,21 @@
-import { CalendarDays, Flower2, Heart, Leaf, ScanFace, Tag } from "lucide-react";
+import {
+  CalendarDays,
+  Car,
+  Clock,
+  Flower2,
+  Heart,
+  Leaf,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  ScanFace,
+  ShieldCheck,
+  Sparkles,
+  Tag,
+  Target,
+  Users,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const icons = {
@@ -8,6 +25,16 @@ const icons = {
   calendar: CalendarDays,
   heart: Heart,
   tag: Tag,
+  sparkles: Sparkles,
+  users: Users,
+  target: Target,
+  car: Car,
+  shield: ShieldCheck,
+  message: MessageCircle,
+  mapPin: MapPin,
+  phone: Phone,
+  mail: Mail,
+  clock: Clock,
 } as const;
 
 export type IconKey = keyof typeof icons;

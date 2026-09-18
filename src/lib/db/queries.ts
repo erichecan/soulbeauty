@@ -21,6 +21,10 @@ export function getFeaturedTestimonial() {
   });
 }
 
+export function getTestimonial(id: string) {
+  return prisma.testimonial.findFirst({ where: { id, isActive: true } });
+}
+
 export function getSiteSettings() {
   return prisma.siteSettings.findUnique({ where: { id: "default" } });
 }

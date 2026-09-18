@@ -117,14 +117,71 @@ const bookableServices = [
   },
 ];
 
+// title 取自客户 Jane 站各人实际开诊的科别
 const practitioners = [
-  { slug: "chen-zhou", name: "Chen Zhou", photoUrl: "/images/practitioners/chen-zhou.png" },
-  { slug: "jennifer-kung", name: "Jennifer Kung", photoUrl: "/images/practitioners/jennifer-kung.jpg" },
-  { slug: "julia-zhuang", name: "Julia Zhuang", photoUrl: "/images/practitioners/julia-zhuang.jpg" },
-  { slug: "sherry-pu", name: "Sherry Pu", photoUrl: "/images/practitioners/sherry-pu.png" },
-  { slug: "qian-feng", name: "Qian Feng", photoUrl: "/images/practitioners/qian-feng.jpg" },
-  { slug: "vinna-sun", name: "Vinna Sun", photoUrl: "/images/practitioners/vinna-sun.jpg" },
-  { slug: "yang-yuan-li", name: "Yang Yuan Li", photoUrl: "/images/practitioners/yang-yuan-li.png" },
+  {
+    slug: "chen-zhou",
+    name: "Chen Zhou",
+    title: "Acupuncturist",
+    photoUrl: "/images/practitioners/chen-zhou.png",
+  },
+  {
+    slug: "jennifer-kung",
+    name: "Jennifer Kung",
+    title: "Facial & Beauty Specialist",
+    photoUrl: "/images/practitioners/jennifer-kung.jpg",
+  },
+  {
+    slug: "julia-zhuang",
+    name: "Julia Zhuang",
+    title: "RMT & Acupuncturist",
+    photoUrl: "/images/practitioners/julia-zhuang.jpg",
+  },
+  {
+    slug: "sherry-pu",
+    name: "Sherry Pu",
+    title: "Registered Social Worker",
+    photoUrl: "/images/practitioners/sherry-pu.png",
+  },
+  {
+    slug: "qian-feng",
+    name: "Qian Feng",
+    title: "Acupuncturist",
+    photoUrl: "/images/practitioners/qian-feng.jpg",
+  },
+  {
+    slug: "vinna-sun",
+    name: "Vinna Sun",
+    title: "Facial & Beauty Specialist",
+    photoUrl: "/images/practitioners/vinna-sun.jpg",
+  },
+  {
+    slug: "yang-yuan-li",
+    name: "Yang Yuan Li",
+    title: "Acupuncturist",
+    photoUrl: "/images/practitioners/yang-yuan-li.png",
+  },
+];
+
+const testimonials = [
+  {
+    id: "primary",
+    quote:
+      "Professional, calming and truly restorative. I always leave feeling better — body and mind.",
+    sortOrder: 1,
+  },
+  {
+    id: "about",
+    quote:
+      "Soul Beauty is my go-to for self care. Professional, kind, and truly healing.",
+    sortOrder: 2,
+  },
+  {
+    id: "contact",
+    quote:
+      "Wellness begins with a conversation. We're here to support you on your journey.",
+    sortOrder: 3,
+  },
 ];
 
 async function main() {
@@ -178,19 +235,18 @@ async function main() {
     });
   }
 
-  await prisma.testimonial.upsert({
-    where: { id: "primary" },
-    update: {},
-    create: {
-      id: "primary",
-      quote:
-        "Professional, calming and truly restorative. I always leave feeling better — body and mind.",
+  for (const testimonial of testimonials) {
+    const shared = {
       rating: 5,
       headline: "A Trusted Wellness Destination",
       subline: "Compassionate care. Lasting results. A healthier, brighter you.",
-      sortOrder: 1,
-    },
-  });
+    };
+    await prisma.testimonial.upsert({
+      where: { id: testimonial.id },
+      update: { ...testimonial, ...shared },
+      create: { ...testimonial, ...shared },
+    });
+  }
 }
 
 main()

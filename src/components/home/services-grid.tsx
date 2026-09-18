@@ -3,7 +3,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { ServiceOfferingModel } from "@/generated/prisma/models";
 
-export function HomeServicesGrid({ offerings }: { offerings: ServiceOfferingModel[] }) {
+export function HomeServicesGrid({
+  offerings,
+  compact = false,
+}: {
+  offerings: ServiceOfferingModel[];
+  compact?: boolean;
+}) {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8 pb-2 pt-1">
@@ -11,7 +17,11 @@ export function HomeServicesGrid({ offerings }: { offerings: ServiceOfferingMode
           <h2 className="font-display text-[32px] font-bold text-ink">
             Our Services
           </h2>
-          <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-ink-muted">
+          <p
+            className={`text-[12px] font-medium uppercase tracking-[0.2em] text-ink-muted ${
+              compact ? "hidden" : ""
+            }`}
+          >
             Holistic Care <span className="mx-2">•</span> Natural Healing{" "}
             <span className="mx-2">•</span> A More Radiant You
           </p>
@@ -30,7 +40,7 @@ export function HomeServicesGrid({ offerings }: { offerings: ServiceOfferingMode
               key={offering.id}
               className="overflow-hidden rounded-2xl border border-lavender-line bg-surface"
             >
-              <div className="relative h-[100px] w-full">
+              <div className={`relative w-full ${compact ? "h-[78px]" : "h-[100px]"}`}>
                 {offering.imageUrl && (
                   <Image
                     src={offering.imageUrl}
@@ -41,14 +51,24 @@ export function HomeServicesGrid({ offerings }: { offerings: ServiceOfferingMode
                   />
                 )}
               </div>
-              <div className="flex items-center justify-between gap-3 px-5 py-2.5">
+              <div
+                className={`flex items-center justify-between gap-2.5 py-2.5 ${
+                  compact ? "px-4" : "px-5"
+                }`}
+              >
                 <div>
-                  <h3 className="font-display text-[17px] font-semibold leading-[1.25] text-ink">
+                  <h3
+                    className={`font-display font-semibold leading-[1.25] text-ink ${
+                      compact ? "text-[14px]" : "text-[17px]"
+                    }`}
+                  >
                     {offering.name}
                   </h3>
-                  <p className="mt-1 text-[13px] leading-[1.45] text-ink-body">
-                    {offering.summary}
-                  </p>
+                  {!compact && (
+                    <p className="mt-1 text-[13px] leading-[1.45] text-ink-body">
+                      {offering.summary}
+                    </p>
+                  )}
                 </div>
                 <Link
                   href="/services"

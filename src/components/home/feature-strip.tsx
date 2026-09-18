@@ -1,6 +1,12 @@
 import { IconCircle } from "@/components/service-icon";
 
-const features = [
+export type Feature = {
+  iconKey: string;
+  title: string;
+  lines: string[];
+};
+
+const homeFeatures: Feature[] = [
   { iconKey: "lotus", title: "RMT", lines: ["Relieve pain", "Improve mobility"] },
   {
     iconKey: "leaf",
@@ -19,7 +25,7 @@ const features = [
   },
 ];
 
-export function FeatureStrip() {
+export function FeatureStrip({ features = homeFeatures }: { features?: Feature[] }) {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-[1400px] px-4 lg:px-8 py-1.5">

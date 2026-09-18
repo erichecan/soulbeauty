@@ -19,7 +19,7 @@ export function TestimonialBand({ testimonial }: { testimonial: TestimonialModel
 
           <span className="hidden h-14 w-px bg-brand/15 lg:block" />
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-5 sm:text-left">
             <div className="flex gap-1 text-brand-accent">
               {Array.from({ length: testimonial.rating }).map((_, index) => (
                 <Star key={index} className="h-5 w-5 fill-current" strokeWidth={0} />
