@@ -1,5 +1,5 @@
-import { BookingWidget } from "@/components/booking/booking-widget";
 import { ContactCard } from "@/components/booking/contact-card";
+import { JaneBookingPanel } from "@/components/booking/jane-booking-panel";
 import { BookingHero } from "@/components/booking/hero";
 import { PractitionersCard } from "@/components/booking/practitioners-card";
 import { SiteFooter } from "@/components/site-footer";
@@ -32,11 +32,13 @@ export default async function BookingPage() {
       <main className="flex-1">
         <BookingHero />
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 px-8 pb-3 pt-2 xl:grid-cols-[0.92fr_1fr]">
-          <div className="flex flex-col gap-4">
+          <div className="order-2 flex flex-col gap-4 xl:order-1">
             <PractitionersCard practitioners={practitioners} />
             <ContactCard settings={settings} />
           </div>
-          <BookingWidget categories={categories} />
+          <div className="order-1 xl:order-2">
+            <JaneBookingPanel categories={categories} />
+          </div>
         </div>
       </main>
       <SiteFooter />

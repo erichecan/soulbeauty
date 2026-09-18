@@ -2,10 +2,9 @@ import Image from "next/image";
 import { LeafSprig } from "@/components/decor";
 
 const steps = [
-  "Choose Service",
-  "Choose Practitioner",
-  "Pick a Time",
-  "Confirm",
+  "Choose Service or Practitioner",
+  "Pick a Time on Jane",
+  "Confirm & Relax",
 ];
 
 export function BookingHero() {

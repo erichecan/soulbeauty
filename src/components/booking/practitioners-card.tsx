@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { PractitionerModel } from "@/generated/prisma/models";
+import { janeLinkProps, janePractitionerUrl } from "@/lib/jane";
 
 export function PractitionersCard({
   practitioners,
@@ -16,7 +17,7 @@ export function PractitionersCard({
             Our Practitioners
           </h2>
           <p className="mt-0.5 text-[13.5px] text-ink-body">
-            Compassionate. Experienced. Here for You.
+            Compassionate. Experienced. Here for You. Tap anyone to book with them.
           </p>
         </div>
         <Link
@@ -30,9 +31,11 @@ export function PractitionersCard({
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {practitioners.map((practitioner) => (
-          <article
+          <a
             key={practitioner.id}
-            className="overflow-hidden rounded-xl border border-lavender-line bg-white pb-3 text-center"
+            href={janePractitionerUrl(practitioner.slug)}
+            {...janeLinkProps}
+            className="block overflow-hidden rounded-xl border border-lavender-line bg-white pb-3 text-center transition-colors hover:border-brand/40"
           >
             <div className="relative mx-auto mt-3 h-[72px] w-[72px] overflow-hidden rounded-full bg-lavender-soft">
               {practitioner.photoUrl && (
@@ -51,7 +54,7 @@ export function PractitionersCard({
             <p className="mt-0.5 px-2 text-[12px] text-ink-soft">
               {practitioner.title ?? "Profile coming soon"}
             </p>
-          </article>
+          </a>
         ))}
       </div>
     </section>
