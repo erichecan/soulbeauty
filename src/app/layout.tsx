@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Dancing_Script, Inter, Playfair_Display } from "next/font/google";
+import { Dancing_Script, Inter, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,6 +17,12 @@ const dancingScript = Dancing_Script({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["600", "800"],
+});
+
 export const metadata: Metadata = {
   title: "Soul Beauty Healing Center",
   description:
@@ -27,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="bg-white">{children}</body>
     </html>
