@@ -50,7 +50,7 @@ export function AboutHero() {
           <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-lavender via-lavender/60 to-transparent" />
         </div>
 
-        <div className="relative z-10 hidden flex-1 flex-col justify-center gap-4 bg-white pl-5 pr-6 lg:flex">
+        <div className="relative z-10 hidden flex-1 flex-col justify-center gap-4 pl-5 pr-6 lg:flex">
           <div className="flex items-end gap-1.5">
             <ScriptAccent lines={["Care", "Restore", "Belong"]} className="text-[25px]" />
             <Heart className="mb-1 h-4 w-4 text-script" strokeWidth={1.5} />
