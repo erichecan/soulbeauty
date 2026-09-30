@@ -7,7 +7,7 @@ import type { ServiceOfferingModel } from "@/generated/prisma/models";
 export function ServicesGrid({ offerings }: { offerings: ServiceOfferingModel[] }) {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1400px] px-4 lg:px-8 pb-2 pt-3">
+      <div className="mx-auto max-w-[1400px] px-4 lg:px-8 pb-2 pt-1.5">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h2 className="font-display text-[32px] font-bold text-ink">Our Services</h2>
           <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-ink-muted">

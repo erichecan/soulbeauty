@@ -31,7 +31,7 @@ export default async function BookingPage() {
       <SiteHeader active="/booking" />
       <main className="flex-1">
         <BookingHero />
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 px-8 pb-3 pt-2 xl:grid-cols-[0.92fr_1fr]">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 px-8 pb-3 pt-1.5 xl:grid-cols-[0.92fr_1fr]">
           <div className="order-2 flex flex-col gap-4 xl:order-1">
             <PractitionersCard practitioners={practitioners} />
             <ContactCard settings={settings} />
